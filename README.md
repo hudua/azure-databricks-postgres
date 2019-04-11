@@ -1,6 +1,6 @@
 # azure-databricks-postgres
 
-This repo provides instruction on how to connet to Azure DB for PostgreSQL from Azure Databricks using Scala.
+This repo provides instruction on how to connet to Azure DB for PostgreSQL from Azure Databricks using Scala and setting up stream writes using for each batch and checkpoint.
 
 * Azure DB for PostgreSQL documentation, including quickstart: https://docs.microsoft.com/en-ca/azure/postgresql/
 

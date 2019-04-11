@@ -3,4 +3,11 @@ val connectionProperties = new java.util.Properties()
 val driverClass = "org.postgresql.Driver"
 connectionProperties.setProperty("Driver", driverClass)
 
-sampleDF.write.mode("append").jdbc(jdbcUrl, "table", connectionProperties)
+messages
+  .writeStream
+  .option("checkpointLocation", "/tmp/example_checkpoint")
+  .foreachBatch { (batchDF: DataFrame, batchId: Long) =>
+	sampleDF.write.mode("append").jdbc(jdbcUrl, "table", connectionProperties)
+  }
+  .start()
+
